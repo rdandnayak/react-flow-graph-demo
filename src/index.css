@@ -1,0 +1,271 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background: #FAFAFA;
+}
+
+/* Base Card Node Styles */
+.card-node {
+  background: white;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  padding: 16px;
+  min-width: 280px;
+  max-width: 320px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+/* Input Card (left side) */
+.input-card {
+  border-left: 3px solid #E5E7EB;
+}
+
+/* Opportunity Card (center) */
+.opportunity-card {
+  border: 2px solid #10B981;
+  background: linear-gradient(to bottom, #ECFDF5 0%, white 100%);
+  min-width: 240px;
+  max-width: 260px;
+}
+
+.opportunity-title {
+  color: #10B981;
+}
+
+/* Stakeholders Card */
+.stakeholders-card {
+  min-width: 300px;
+  max-width: 340px;
+}
+
+/* Pitch Card */
+.pitch-card {
+  min-width: 300px;
+  max-width: 340px;
+}
+
+/* Source Badge */
+.source-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background: #F9FAFB;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  font-size: 13px;
+  color: #6B7280;
+}
+
+/* Card Title */
+.card-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #1F2937;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.title-icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* Card Description */
+.card-description {
+  font-size: 14px;
+  color: #6B7280;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.card-description strong {
+  color: #1F2937;
+  font-weight: 600;
+}
+
+/* Tags Container */
+.tags-container {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+/* Tag Styles */
+.tag {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.tag-primary {
+  background: #0D9488;
+  color: white;
+}
+
+.tag-secondary {
+  background: #F3F4F6;
+  color: #374151;
+}
+
+.tag-default {
+  background: #E5E7EB;
+  color: #4B5563;
+}
+
+/* Highlight Box (stakeholders) */
+.highlight-box {
+  background: #0D9488;
+  color: white;
+  padding: 12px 14px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.highlight-box strong {
+  font-weight: 600;
+}
+
+/* People List */
+.people-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.person-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.person-icon {
+  display: flex;
+  align-items: center;
+  margin-top: 2px;
+}
+
+.person-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.person-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1F2937;
+}
+
+.person-role {
+  font-size: 12px;
+  color: #9CA3AF;
+}
+
+/* Card Items (bullet points) */
+.card-items {
+  list-style: disc;
+  padding-left: 20px;
+  margin: 0;
+}
+
+.card-items li {
+  font-size: 14px;
+  color: #6B7280;
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+
+.card-items li:last-child {
+  margin-bottom: 0;
+}
+
+/* Buttons Container */
+.buttons-container {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+/* Action Button */
+.action-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: #0D9488;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.action-button:hover {
+  background: #0F766E;
+}
+
+/* React Flow Handle Styles */
+.react-flow__handle {
+  width: 10px;
+  height: 10px;
+  background: #10B981;
+  border: 2px solid white;
+  box-shadow: 0 0 0 1px #10B981;
+}
+
+.react-flow__handle-left {
+  left: -5px;
+}
+
+.react-flow__handle-right {
+  right: -5px;
+}
+
+/* Edge Label Styles */
+.react-flow__edge-textbg {
+  fill: #ECFDF5;
+}
+
+.react-flow__edge-text {
+  font-size: 9px;
+  font-weight: 600;
+}
+
+/* Background */
+.react-flow__background {
+  background-color: #FAFAFA;
+}
+
+/* Controls */
+.react-flow__controls {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.react-flow__controls-button {
+  border: none;
+  background: white;
+}
+
+.react-flow__controls-button:hover {
+  background: #F3F4F6;
+}

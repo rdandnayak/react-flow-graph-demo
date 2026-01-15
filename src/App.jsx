@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 import {
   ReactFlow,
   addEdge,
@@ -14,6 +14,7 @@ import {
   StakeholdersNode,
   PitchGuidanceNode,
 } from './components/CardNode';
+import { getLayoutedElements } from './utils/layout';
 
 const nodeTypes = {
   inputCard: InputCardNode,
@@ -22,12 +23,12 @@ const nodeTypes = {
   pitchGuidance: PitchGuidanceNode,
 };
 
-const initialNodes = [
+// Define nodes without positions - layout will calculate them
+const rawNodes = [
   // Left column - Input cards
   {
     id: 'outlook-card',
     type: 'inputCard',
-    position: { x: 50, y: 50 },
     data: {
       source: { type: 'outlook', label: 'Outlook' },
       description: 'AIG is under pressure to optimize QA staffing, AIG is under pressure to optimize QA staffingAIG is under pressure to optimize QA staffingAIG is under pressure to optimize QA staffingAIG is under pressure to optimize QA staffing',
@@ -40,7 +41,6 @@ const initialNodes = [
   {
     id: 'urgency-card',
     type: 'inputCard',
-    position: { x: 50, y: 220 },
     data: {
       title: "What's driving urgency?",
       titleIcon: 'question',
@@ -55,7 +55,6 @@ const initialNodes = [
   {
     id: 'capability-card',
     type: 'inputCard',
-    position: { x: 50, y: 430 },
     data: {
       title: 'Matching Cognizant capability',
       titleIcon: 'checkbox',
@@ -72,7 +71,6 @@ const initialNodes = [
   {
     id: 'opportunity',
     type: 'opportunity',
-    position: { x: 420, y: 280 },
     data: {
       title: 'Opportunity',
       description: 'Position Flowsource with QE&A services to reduce QA costs at AIG',
@@ -84,7 +82,6 @@ const initialNodes = [
   {
     id: 'stakeholders',
     type: 'stakeholders',
-    position: { x: 780, y: 80 },
     data: {
       title: 'Primary stakeholders',
       highlight: 'Reach out to <strong>Scott Hallworth</strong> through <strong>John Moore</strong>',
@@ -97,7 +94,6 @@ const initialNodes = [
   {
     id: 'pitch-guidance',
     type: 'pitchGuidance',
-    position: { x: 780, y: 380 },
     data: {
       title: 'Pitch guidance',
       items: [
@@ -113,7 +109,7 @@ const initialNodes = [
   },
 ];
 
-const initialEdges = [
+const rawEdges = [
   // Left to Center edges
   {
     id: 'e-outlook-opp',
@@ -164,9 +160,16 @@ const initialEdges = [
   },
 ];
 
+// Calculate layout once
+const { nodes: layoutedNodes, edges: layoutedEdges } = getLayoutedElements(
+  rawNodes,
+  rawEdges,
+  'LR'
+);
+
 export default function App() {
-  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
-  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
+  const [nodes, setNodes, onNodesChange] = useNodesState(layoutedNodes);
+  const [edges, setEdges, onEdgesChange] = useEdgesState(layoutedEdges);
 
   const onConnect = useCallback(
     (params) => setEdges((eds) => addEdge(params, eds)),
